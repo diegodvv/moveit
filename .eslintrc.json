@@ -3,7 +3,17 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["plugin:@typescript-eslint/eslint-recommended", "prettier/@typescript-eslint"],
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -68,7 +78,8 @@
     "no-debugger": "warn",
     "no-template-curly-in-string": "warn",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react/react-in-jsx-scope": "off"
   },
   "root": true,
   "ignorePatterns": ["./config", "./html", "./node_modules", "./public", "./scripts"]
