@@ -11,8 +11,7 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "prettier",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "globals": {
     "Atomics": "readonly",
