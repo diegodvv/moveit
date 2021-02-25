@@ -14,6 +14,7 @@ type ChallengeContextData = {
   activeChallenge: Challenge;
   levelUp: () => void;
   startNewChallenge: () => void;
+  resetChallenge: () => void;
 };
 export const ChallengesContext = createContext({} as ChallengeContextData);
 
@@ -35,9 +36,22 @@ export function ChallengesProvider({ children }: Props) {
     const challenge = challenges[randomChallengeIndex];
     setActiveChallenge(challenge);
   }
+
+  function resetChallenge() {
+    setActiveChallenge(null);
+  }
+
   return (
     <ChallengesContext.Provider
-      value={{ level, levelUp, currentExperience, challengesCompleted, activeChallenge, startNewChallenge }}>
+      value={{
+        level,
+        levelUp,
+        currentExperience,
+        challengesCompleted,
+        activeChallenge,
+        startNewChallenge,
+        resetChallenge,
+      }}>
       {children}
     </ChallengesContext.Provider>
   );
