@@ -1,6 +1,13 @@
 import { createContext, ReactNode, useState } from 'react';
 
-export const ChallengesContext = createContext({});
+type ChallengeContextData = {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+  levelUp: () => void;
+  startNewChallenge: () => void;
+};
+export const ChallengesContext = createContext({} as ChallengeContextData);
 
 type Props = {
   children: ReactNode;
