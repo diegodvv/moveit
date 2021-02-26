@@ -44,6 +44,12 @@ export function ChallengesProvider({ children }: Props) {
     const challenge = challenges[randomChallengeIndex];
     // @ts-expect-error
     setActiveChallenge(challenge);
+
+    if (Notification.permission === 'granted') {
+      new Notification('Novo desafio 🎉', {
+        body: `Valendo ${challenge.amount} xp!`,
+      });
+    }
   }
 
   function resetChallenge() {
