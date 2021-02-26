@@ -22,12 +22,15 @@ type ChallengeContextData = {
 export const ChallengesContext = createContext({} as ChallengeContextData);
 
 type Props = {
+  level: number | undefined;
+  currentExperience: number | undefined;
+  challengesCompleted: number | undefined;
   children: ReactNode;
 };
-export function ChallengesProvider({ children }: Props) {
-  const [level, setLevel] = useState(1);
-  const [currentExperience, setCurrentExperience] = useState(0);
-  const [challengesCompleted, setChallengesCompleted] = useState(0);
+export function ChallengesProvider({ children, ...rest }: Props) {
+  const [level, setLevel] = useState(rest.level ?? 1);
+  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
+  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
