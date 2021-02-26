@@ -1,4 +1,4 @@
-#  Move IT (WIP)
+# 🎾 Move IT (WIP)
 
 This project is from Next Level Week by Rocketseat. It consists of a pomodoro style timer that suggests exercises for the dev to do on the breaks, with a game like leveling system to bring extra motivation to users.
 
