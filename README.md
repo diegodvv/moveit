@@ -7,10 +7,10 @@ This was made as a way to study React's Context API and Next.js.
 ## ⚡ Demo
 You can access it [here](https://moveit-one-green.vercel.app)!
 <p style="text-align: center;">
-  WIP
+  
 </p>
 
-## 💻 Techs
+## 💻 Project's Techs
 
 - [React](https://reactjs.org/)
 - ⭐ React Context API
