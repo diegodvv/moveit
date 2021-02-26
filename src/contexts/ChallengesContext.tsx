@@ -16,6 +16,7 @@ type ChallengeContextData = {
   levelUp: () => void;
   startNewChallenge: () => void;
   resetChallenge: () => void;
+  completeChallenge: () => void;
 };
 export const ChallengesContext = createContext({} as ChallengeContextData);
 
@@ -26,7 +27,7 @@ export function ChallengesProvider({ children }: Props) {
   const [level, setLevel] = useState(1);
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengesCompleted, setChallengesCompleted] = useState(0);
-  const [activeChallenge, setActiveChallenge] = useState(null);
+  const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -37,11 +38,29 @@ export function ChallengesProvider({ children }: Props) {
   function startNewChallenge() {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallengeIndex];
+    // @ts-expect-error
     setActiveChallenge(challenge);
   }
 
   function resetChallenge() {
     setActiveChallenge(null);
+  }
+
+  function completeChallenge() {
+    if (!activeChallenge) return;
+
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      levelUp();
+      finalExperience -= experienceToNextLevel;
+    }
+
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+    setChallengesCompleted(challengesCompleted + 1);
   }
 
   return (
@@ -55,6 +74,7 @@ export function ChallengesProvider({ children }: Props) {
         experienceToNextLevel,
         startNewChallenge,
         resetChallenge,
+        completeChallenge,
       }}>
       {children}
     </ChallengesContext.Provider>
