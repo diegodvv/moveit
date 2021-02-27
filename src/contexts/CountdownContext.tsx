@@ -19,7 +19,8 @@ type Props = {
 export function CountdownProvider({ children }: Props) {
   const { startNewChallenge } = useContext(ChallengesContext);
 
-  const [time, setTime] = useState(25 * 60);
+  const countdownTimeInSeconds = 25 * 60;
+  const [time, setTime] = useState(countdownTimeInSeconds);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -44,7 +45,7 @@ export function CountdownProvider({ children }: Props) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(25 * 60);
+    setTime(countdownTimeInSeconds);
   }
 
   return (
