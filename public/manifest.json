@@ -2,7 +2,7 @@
   "name": "move it",
   "theme_color": "#2196f3",
   "background_color": "#F2F3F5",
-  "display": "browser",
+  "display": "fullscreen",
   "orientation": "landscape",
   "scope": "/",
   "start_url": "/",
