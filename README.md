@@ -5,7 +5,7 @@ This project is from Next Level Week by Rocketseat. It consists of a pomodoro st
 This was made as a way to study React's Context API and Next.js.
 
 ## ⚡ Demo
-You can access it [here](https://moveit-one-green.vercel.app)!
+You can access it [here](https://moveit-one-green.vercel.app)! And even install it (it's a **PWA**)!
 
 When you first use the app, you can start a countdown and code/work until it ends.
 <p style="text-align: center;">
